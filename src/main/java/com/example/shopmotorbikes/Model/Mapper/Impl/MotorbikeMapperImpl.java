@@ -18,6 +18,7 @@ public class MotorbikeMapperImpl implements MotorbikeMapper {
         }
 
         MotorbikeMainDto motorbikeMainDto = new MotorbikeMainDto();
+        motorbikeMainDto.setMaXe(mb.getMaXe());
         motorbikeMainDto.setTenXe(mb.getTenXe());
         motorbikeMainDto.setGiaXe(mb.getGiaXe());
         motorbikeMainDto.setDungTich(mb.getDungTich());
