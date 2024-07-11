@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/plugin.css">
     <!-- Main Stylesheet css -->
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
@@ -68,7 +69,7 @@
                     <div class="col-12 ic-header-top-inner">
                         <div class="ic-header-top-left">
                             <!-- Logo -->
-                            <a th:href="@{/E-StoreX/Trang-chủ}" class="ic-logo">
+                            <a th:href="@{/E-StoreX/Trang-chu}" class="ic-logo">
                                 <img src="/assets/images/logo.png" alt="logo">
                             </a>
                         </div>
@@ -258,7 +259,7 @@
                                                 <li><a href="404.html">404 Page</a></li>
                                                 <li><a href="cart.html">Cart Page</a></li>
                                                 <li><a href="wishlist.html">Wishlist Page</a></li>
-                                                <li><a href="checkout.html">Checkout Page</a></li>
+                                                <li><a href="/E-StoreX/Checkout">Checkout Page</a></li>
                                             </ul>
                                         </li>
                                         <li class="ic-menu-item ic-has-dropdown">
@@ -271,7 +272,7 @@
                                         </li>
                                         <li class="ic-menu-item"><a th:href="@{/E-StoreX/About}">About</a></li>
                                         <li class="ic-menu-item">
-                                            <a th:href="@{/E-StoreX/Liên-hệ}">Contact</a>
+                                            <a th:href="@{/E-StoreX/Contact}">Contact</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -1615,6 +1616,8 @@
         </div>
         <!-- scroll to top end here -->
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.41.0/lib/index.iife.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bs58/4.0.1/bs58.min.js"></script>
     <!-- Footer style two section start here -->
     <section class="ic-footer style-two">
 
@@ -1867,7 +1870,7 @@
                                 </div>
                                 <div class="ic-btn-group">
                                     <a href="cart.html" class="ic-btn ic-custom-btn-rvs">View Cart</a>
-                                    <a href="checkout.html" class="ic-btn ic-custom-btn theme-color">Checkout</a>
+                                    <a href="/E-StoreX/Checkout?tenXe=${response.tenXe}" class="ic-btn ic-custom-btn theme-color">Checkout</a>
                                     <a data-bs-dismiss="modal" class="ic-btn ic-modal-close"><i class="icofont-close"></i></a>
                                 </div>
                             </div>
