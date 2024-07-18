@@ -112,6 +112,27 @@ $(document).ready(function() {
 
     $('#conformCheckout').on('click', function(e) {
         e.preventDefault();
+        const selectedRadio = $("input[name='price-radio']:checked").attr('id');
+
+        switch (selectedRadio) {
+            case 'radioSolana':
+                thanhToanBangSolana()
+                break;
+
+            case 'radioMomo':
+                alert('Momo')
+                break;
+
+            case 'radioShop':
+                alert('Thanh toán tiền mặt')
+                break;
+        }
+
+
+
+    });
+
+    function thanhToanBangSolana() {
         const provider = window.solana;
         if ("solana" in window) {
             if (provider.isPhantom) {
@@ -144,7 +165,7 @@ $(document).ready(function() {
                 }
             });
         }
-    });
+    }
 
     async function transferSOL(lambordsVnd) {
         const {
