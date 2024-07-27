@@ -11,6 +11,7 @@
     <meta name="author" content="https://itclanbd.com/"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Title -->
     <title>Kiosk Bike - Multi-purpose E-commerce Html5 Template</title>
 
@@ -97,9 +98,9 @@
                                             <span>Account</span>
                                         </div>
                                         <ul class="ic-account-dropdown">
-                                            <li><a th:href="@{/E-StoreX/Đăng-nhập}">Login</a></li>
-                                            <li><a th:href="@{/E-StoreX/Đăng-ký}">Register</a></li>
+                                            <li><a th:href="@{/E-StoreX/Login}">Login</a></li>
                                             <li><a th:href="@{/E-StoreX/Tài-khoản}">My Account</a></li>
+                                            <li><a th:href="@{/logout}">Logout</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -1708,6 +1709,7 @@
 
 <script>
     $(document).ready(function() {
+
         $.ajax({
             url: '/Motorbike/get-all-cilent',
             method: 'GET',

@@ -3,7 +3,8 @@ $(document).ready(function() {
         $.ajax({
             url: 'https://esgoo.net/api-tinhthanh/1/0.htm',
             type: 'GET',
-            dataType: 'json'
+            dataType: 'json',
+
         })
             .done(async function(data_tinh) {
                 if (data_tinh.error == 0) {

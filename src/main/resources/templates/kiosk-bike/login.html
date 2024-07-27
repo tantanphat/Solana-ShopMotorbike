@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{kiosk-bike/index.html}">
+
+<head>
+    <link rel="stylesheet" href="/assets/custom/css/login.css">
+</head>
+<body>
+<main class="wrapper" layout:fragment="index">
+    <div class="containere shadow-lg border ">
+        <div class="login ">Log In</div>
+        <div class="signup ">Sign Up</div>
+        <form class="login-form" >
+            <input  id="username" name="username"  type="text" placeholder="Email" class="input"><br />
+            <input  id="password" name="password"  type="password" placeholder="Password" class="input"><br />
+            <button class="btn" id="login">log in</button>
+            <span><a href="#">I forgot my username or password.</a></span>
+        </form>
+        <form class="signup-form">
+            <input type="text" placeholder="Your Email Address" class="input email"><br />
+            <input type="text" placeholder="Choose a Username" class="input password"><br />
+            <input type="password" placeholder="Choose a Password" class="input"><br />
+            <button class="btn" >Create account</button>
+        </form>
+
+
+
+    </div>
+    <script src="/assets/custom/js/login.js"></script>
+    <script>
+            $(document).ready(function() {
+                $('#login').click(function(event) {
+                    event.preventDefault();
+
+                    var username = $('#username').val();
+                    var password = $('#password').val();
+
+                    if (!username) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: "Email cannot be empty",
+                        });
+                        return;
+                    }
+
+                    if (!password) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: "Password cannot be empty",
+                        });
+                        return;
+                    }
+
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/api/auth/login',
+                        data: $.param({ username: username, password: password }),
+                        contentType: 'application/x-www-form-urlencoded',
+                        success: function(response) {
+                            console.log(response.token);
+                            var text = response.message;
+
+                            localStorage.setItem('authToken', response.token);
+                            Swal.fire({
+                                position: "top-end",
+                                icon: "success",
+                                title: "Login Success",
+                                text: text,
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                            //     .then(function() {
+                            //     window.location.href = '/E-StoreX/Trang-chu';
+                            // });
+
+                        },
+                        error: function(jqXHR, exception, exceptionText) {
+                            var errorResponse = JSON.parse(jqXHR.responseText);
+                            if (jqXHR.status === 401) {
+
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Error",
+                                    text: errorResponse.error
+                                });
+                            } else {
+                                alert('Error: ' + exception);
+                                console.log(errorResponse)
+                            }
+                        }
+                    });
+
+                });
+            });
+    </script>
+</main>
+
+</body>
+</html>

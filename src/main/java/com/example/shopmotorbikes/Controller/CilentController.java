@@ -51,5 +51,10 @@ public class CilentController {
         return "/kiosk-bike/shop-single";
     }
 
+    @GetMapping("Login")
+    public String LoginPage() {
+        return "/kiosk-bike/login";
+    }
+
 
 }
