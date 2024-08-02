@@ -24,4 +24,5 @@ public class VehicleType {
 
     @Column(name = "description_loai_xe", nullable = false)
     private String description;
+
 }

@@ -6,6 +6,7 @@ import com.example.shopmotorbikes.Model.Mapper.MotorbikeMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
@@ -13,7 +14,7 @@ public class MotorbikeMapperImpl implements MotorbikeMapper {
 
     @Override
     public MotorbikeMainDto motorbikeToMotorbikDto(Motorbike mb) {
-        if(mb == null){
+        if (mb == null) {
             return null;
         }
 
@@ -25,9 +26,9 @@ public class MotorbikeMapperImpl implements MotorbikeMapper {
         motorbikeMainDto.setTrangThai(mb.getTrangThai());
         motorbikeMainDto.setMauXe(mb.getMauXe());
         motorbikeMainDto.setSoKhung(mb.getSoKhung());
-        motorbikeMainDto.setZinXe(mb.getZinXe());
         motorbikeMainDto.setMoTa(mb.getDescriptionXe());
-        motorbikeMainDto.setTenLoaiXe(mb.getVehicleType().getTenLoaiXe());
+        motorbikeMainDto.setLoaiXe(mb.getMaLoaiXe());
+        motorbikeMainDto.setHangXe(mb.getMaHangXe());
         motorbikeMainDto.setAnhXe(mapAlbumsToImageUrls(mb.getAlbums()));
         return motorbikeMainDto;
     }

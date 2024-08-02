@@ -1,7 +1,6 @@
 package com.example.shopmotorbikes.Controller;
 
 import com.example.shopmotorbikes.Entity.ChucVu;
-import com.example.shopmotorbikes.Entity.Products;
 import com.example.shopmotorbikes.Model.Dto.MotorbikeMainDto;
 import com.example.shopmotorbikes.Service.ChucVuService;
 import com.example.shopmotorbikes.Service.MotorbikeService;
@@ -54,11 +53,6 @@ public class AdminController {
         return "/admin/role-table";
     }
 
-    @RequestMapping("/products")
-    public String ProductsList() {
-        return "/admin/products";
-    }
-
     //Trang thêm chức vụ
     @RequestMapping("/Chức-vụ")
     public String AddRolePage(Model model, @RequestParam(name = "maCV",required = false) String maCV) throws NotFoundException {
@@ -73,7 +67,7 @@ public class AdminController {
     public String showProductPage(Model model) {
         List<MotorbikeMainDto> productList = motorbikeService.getAllMotorbikes();
         model.addAttribute("items", productList);
-        model.addAttribute("item", new Products());
+        model.addAttribute("item", new MotorbikeMainDto());
         return "admin/products";
     }
 }
