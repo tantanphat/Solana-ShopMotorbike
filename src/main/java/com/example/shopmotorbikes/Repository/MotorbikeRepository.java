@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface MotorbikeRepository extends JpaRepository<Motorbike,Object> {
+public interface MotorbikeRepository extends JpaRepository<Motorbike,String> {
     @Query("SELECT m FROM Motorbike m WHERE m.tenXe = ?1")
     Optional<Motorbike> findByName(String tenXe);
 }

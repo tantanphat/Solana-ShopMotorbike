@@ -20,9 +20,9 @@ public class MotorbikeMainDto {
     private Integer zinXe;
     private String moTa;
     private String mauXe;
-    private String trangThai; // Để hiển thị trạng thái dưới dạng chữ
-    private Integer loaiXe; // Để lưu loại xe dưới dạng số
-    private String hangXe; // Để lưu hãng xe dưới dạng chữ
+    private String trangThai;
+    private Integer loaiXe;
+    private String hangXe;
     private List<String> anhXe;
 
     public Motorbike toEntity() {
@@ -35,10 +35,9 @@ public class MotorbikeMainDto {
         motorbike.setZinXe(this.zinXe);
         motorbike.setDescriptionXe(this.moTa);
         motorbike.setMauXe(this.mauXe);
-        motorbike.setTrangThai(this.trangThai); // Sử dụng chuỗi cho trạng thái
-        motorbike.setMaLoaiXe(this.loaiXe); // Sử dụng Integer cho loại xe
-        motorbike.setMaHangXe(this.hangXe); // Sử dụng chuỗi cho hãng xe
-        // Nếu bạn cần xử lý thêm phần lưu ảnh, hãy thêm logic vào đây
+        motorbike.setTrangThai(this.trangThai);
+        motorbike.setMaLoaiXe(this.loaiXe);
+        motorbike.setMaHangXe(this.hangXe);
         return motorbike;
     }
 }

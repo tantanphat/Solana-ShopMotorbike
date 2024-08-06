@@ -29,7 +29,8 @@ public class MotorbikeMapperImpl implements MotorbikeMapper {
         motorbikeMainDto.setMoTa(mb.getDescriptionXe());
         motorbikeMainDto.setLoaiXe(mb.getMaLoaiXe());
         motorbikeMainDto.setHangXe(mb.getMaHangXe());
-        motorbikeMainDto.setAnhXe(mapAlbumsToImageUrls(mb.getAlbums()));
+        motorbikeMainDto.setZinXe(mb.getZinXe());
+        //motorbikeMainDto.setAnhXe(mapAlbumsToImageUrls(mb.getAlbums()));
         return motorbikeMainDto;
     }
 }
