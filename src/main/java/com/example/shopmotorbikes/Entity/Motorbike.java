@@ -15,7 +15,6 @@ import java.util.List;
 public class Motorbike {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ma_xe", updatable = false, nullable = false)
     private String maXe;
 
@@ -48,13 +47,4 @@ public class Motorbike {
 
     @Column(name = "ma_hang_xe", nullable = false)
     private String maHangXe;
-
-    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name = "ma_xe_album",referencedColumnName = "ma_xe")
-    private List<AlbumImage> albums;
-
-    @ManyToOne
-    @JoinColumn(name = "ma_loai_xe", referencedColumnName = "ma_loai_xe", insertable = false, updatable = false)
-    private VehicleType vehicleType;
-
 }

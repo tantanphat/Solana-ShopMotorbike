@@ -1,11 +1,14 @@
 package com.example.shopmotorbikes.Controller;
 
 import com.example.shopmotorbikes.Entity.ChucVu;
+import com.example.shopmotorbikes.Model.Dto.MotorbikeMainDto;
 import com.example.shopmotorbikes.Service.ChucVuService;
+import com.example.shopmotorbikes.Service.MotorbikeService;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,9 +19,12 @@ import java.util.List;
 public class AdminController {
     @Autowired
     private ChucVuService chucVuService;
+    @Autowired
+    private MotorbikeService motorbikeService;
+
 
     //Trang chính admim
-    @RequestMapping("/Trang-chủ")
+    @RequestMapping("/trangchu")
     public String HomePage() {
         return "/admin/index";
     }
@@ -54,5 +60,14 @@ public class AdminController {
         model.addAttribute("cv", cv);
         System.out.println("Chức vụ: "+chucVuService.auMaCV());
         return "/admin/role-deltail";
+    }
+
+    //Trang admin quản lý sản phẩm
+    @GetMapping("/Motorbikes")
+    public String showProductPage(Model model) {
+        List<MotorbikeMainDto> productList = motorbikeService.getAllMotorbikes();
+        model.addAttribute("items", productList);
+        model.addAttribute("item", new MotorbikeMainDto());
+        return "admin/products";
     }
 }
